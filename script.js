@@ -1,31 +1,111 @@
 /**
  * Project 1 - Interactive Image
- * Name: 
+ * Name: Isa Coronel
  * Comments: 
  */
 
 // Global Variables go here
+var a = 0 // rotation angle
+var x = 0, y = 0; // sprite location
+var xSpeed = 0, ySpeed = 0;
+var m = 0 //microphone angle
 
 function setup(){
   // this function will run once
   createCanvas(600, 400); // create a 600x400 pixel drawing canvas
-
+  x = width/2
+  y = height/2
+  xSpeed = random(-3, 3)
+  ySpeed = random(-3, 3)
 }
 
 function draw(){
   // this function runs again and again (60x per second)
   background(200); //light gray background
-  
+
+  x += xSpeed;
+  y += ySpeed;
+
+  if(x > width || x < 0 ){ //checking for two different arguments, greater than width OR less than 0
+    xSpeed *= -1;
+  }
+
+  if(y > height || y < 0){
+    ySpeed = ySpeed - (ySpeed * 2); // bounce off the walls
+   }
+
+  text("Jiggly Puff", 40, 40)
+
   // add your image drawing code here
+  push(); //create layer
+  translate(x, y)
+  rotate(a); 
+  a += .01 // rotate image from center at width/2
+  x++;
+  if(x > width) {
+    x = 0
+  }
+
+  
+  //jiggly puff image
+  strokeWeight(2) //change stroke size
+  fill("pink")
+  triangle( - 85, - 125, - 30, - 95, - 85, - 60) // left outer ear
+  triangle(95, - 115, 40, - 80, 95, - 35) // right outer ear
+  ellipse(- 50, 100, 45, 20) // left foot
+  ellipse(50, 100, 45, 20) // right foot 
+  fill("brown")
+  triangle(- 82, - 115, - 40, - 85, - 75, - 50) // left inner ear
+  triangle(90, - 105, 50, - 70, 85, - 35) // right inner ear
+  fill("pink")
+  ellipse(0, 0, 210) //head-body
+  fill("white")
+  strokeWeight(2) // change stroke size
+  ellipse(- 50, - 20, 70) //left eye
+  ellipse(50, 5, 70) //right eye
+  fill("teal")
+  ellipse(- 40, - 15, 50) // left eye pupil
+  ellipse(60, 10, 50) // right eye pupil
+  fill("white")
+  ellipse(- 27, - 30, 10) // left eye highlight
+  ellipse(70, - 8, 10) // right eye highlight
+  noFill()
+  arc(0, 0, 10, 10, 0, PI) //mouth
+  arc(- 75, 30, 25, 55, 0, PI) // L arm
+  arc(65, 50, 25, 55, 0, PI) // R arm 
+  fill("pink")
+  arc( 10, - 95, 85, 75, PI, TWO_PI+HALF_PI)// large hair tuff
+  noFill()
+  arc(10, - 70, 65, 65, 0, PI + HALF_PI)// inner hair tuff
+  
+  push();
+  rotate(m)
+  if(mouseIsPressed){
+    m += -.02
+  } else{
+    m = 0
+  }
+  fill(125)
+  rect(50, 55, 55, 20) //microphone handle
+  rect(95, 53, 5, 24) //microphone
+  ellipse( 114, 65, 29, 29) //microphone
+  line(110, 52, 110, 78) //microphone
+  pop();
+  
+
+
+  pop(); //dispose of layer
 
 /* 
   Use the following if()...else() structure to incorporate mouse click control of your animation
 */
-  if(mouseIsPressed){
+  //if(mouseIsPressed){
     //check each frame to see if the mouse is pressed, then do something
-  } else {
+    //a += .01; 
+  //} else {
     // do something here if the mouse is NOT pressed
-  }
+   // a = 0
+  //}
 }
 
 /** 
