@@ -13,18 +13,18 @@ var m = 0 //microphone angle
 function setup(){
   // this function will run once
   createCanvas(600, 400); // create a 600x400 pixel drawing canvas
-  x = width/2
-  y = height/2
-  xSpeed = random(-3, 3)
-  ySpeed = random(-3, 3)
+  x = width/2 // assigning middle of canvas a variable
+  y = height/2 // assigning middle of canvas a variable
+  xSpeed = random(-3, 3) // moves horizontally with any speed randomly assigned between two numbers
+  ySpeed = random(-3, 3) // moves vertically with any speed randomly assigned between numbers
 }
 
 function draw(){
   // this function runs again and again (60x per second)
   background(200); //light gray background
 
-  x += xSpeed;
-  y += ySpeed;
+  x += xSpeed; // 
+  y += ySpeed; //
 
   if(x > width || x < 0 ){ //checking for two different arguments, greater than width OR less than 0
     xSpeed *= -1;
@@ -34,17 +34,13 @@ function draw(){
     ySpeed = ySpeed - (ySpeed * 2); // bounce off the walls
    }
 
-  text("Jiggly Puff", 40, 40)
+  text("Jiggly Puff", width/2, height/2)
 
   // add your image drawing code here
   push(); //create layer
   translate(x, y)
   rotate(a); 
   a += .01 // rotate image from center at width/2
-  x++;
-  if(x > width) {
-    x = 0
-  }
 
   
   //jiggly puff image
@@ -79,17 +75,18 @@ function draw(){
   arc(10, - 70, 65, 65, 0, PI + HALF_PI)// inner hair tuff
   
   push();
-  rotate(m)
-  if(mouseIsPressed){
-    m += -.02
+  translate(80, 65);
+  rotate(m) //rotate microphone angle
+  if(mouseIsPressed){ //if moused pressed, microphone will rotate around jiggly puff
+    m += -0.1
   } else{
-    m = 0
+    m = 0 //if not, microphone stays in hand
   }
   fill(125)
-  rect(50, 55, 55, 20) //microphone handle
-  rect(95, 53, 5, 24) //microphone
-  ellipse( 114, 65, 29, 29) //microphone
-  line(110, 52, 110, 78) //microphone
+  rect(-30, -10, 55, 20) //microphone handle
+  rect(15, -12, 5, 24) //microphone
+  ellipse(34, 0, 29, 29) //microphone
+  line(30, -13, 30, 13) //microphone
   pop();
   
 
