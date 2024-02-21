@@ -78,7 +78,7 @@ function draw(){
   translate(80, 65);
   rotate(m) //rotate microphone angle
   if(mouseIsPressed){ //if moused pressed, microphone will rotate around jiggly puff
-    m += -0.1
+    m += -0.25
   } else{
     m = 0 //if not, microphone stays in hand
   }
