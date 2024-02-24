@@ -1,13 +1,13 @@
 /**
  * Project 1 - Interactive Image
  * Name: Isa Coronel
- * Comments: 
+ * Comments: Jiggly Puff bounces off the canvas and when mouse is pressed, micorphone spins in the hand
  */
 
 // Global Variables go here
 var a = 0 // rotation angle
 var x = 0, y = 0; // sprite location
-var xSpeed = 0, ySpeed = 0;
+var xSpeed = 0, ySpeed = 0; // movement on horizontal and vertical
 var m = 0 //microphone angle
 
 function setup(){
@@ -103,12 +103,12 @@ function draw(){
     // do something here if the mouse is NOT pressed
    // a = 0
   //}
-}
+//}
 
 /** 
  * the mousePressed() function is separate from draw(). 
  * It only runs (one time) if the mouse is clicked
 */
-function mousePressed(){
+//function mousePressed(){
   // add code here if you want something to execute once each time the mouse is pressed
 }
